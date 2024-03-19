@@ -2,10 +2,11 @@
 
 {
   # import X11 config
-  imports = [ ./x11.nix
-              ./pipewire.nix
-              ./dbus.nix
-            ];
+  imports = [
+    ./x11.nix
+    ./pipewire.nix
+    ./dbus.nix
+  ];
 
   # Setup XMonad
   services.xserver = {
