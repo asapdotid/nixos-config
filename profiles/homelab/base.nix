@@ -1,19 +1,20 @@
 { lib, pkgs, systemSettings, userSettings, ... }:
 
 {
-  imports =
-    [ ../../system/hardware-configuration.nix
-      ../../system/hardware/time.nix # Network time sync
-      ../../system/security/doas.nix
-      ../../system/security/gpg.nix
-      ( import ../../system/app/docker.nix {storageDriver = "btrfs"; inherit userSettings pkgs lib;} )
-    ];
+  imports = [
+    ../../system/hardware-configuration.nix
+    ../../system/hardware/time.nix # Network time sync
+    ../../system/security/doas.nix
+    ../../system/security/gpg.nix
+    ( import ../../system/app/docker.nix {storageDriver = "btrfs"; inherit userSettings pkgs lib;} )
+  ];
 
   # Fix nix path
-  nix.nixPath = [ "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
-                  "nixos-config=$HOME/dotfiles/system/configuration.nix"
-                  "/nix/var/nix/profiles/per-user/root/channels"
-                ];
+  nix.nixPath = [
+    "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
+    "nixos-config=$HOME/dotfiles/system/configuration.nix"
+    "/nix/var/nix/profiles/per-user/root/channels"
+  ];
 
   # Ensure nix flakes are enabled
   nix.package = pkgs.nixFlakes;
@@ -81,6 +82,6 @@
   programs.zsh.enable = true;
 
   # It is ok to leave this unchanged for compatibility purposes
-  system.stateVersion = "22.11";
+  system.stateVersion = "23.11";
 
 }

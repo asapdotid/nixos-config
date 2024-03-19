@@ -7,11 +7,11 @@
                   ];
   home.sessionVariables = { DEFAULT_BROWSER = "${pkgs.qutebrowser}/bin/qutebrowser"; };
   xdg.mimeApps.defaultApplications = {
-  "text/html" = "org.qutebrowser.qutebrowser.desktop";
-  "x-scheme-handler/http" = "org.qutebrowser.qutebrowser.desktop";
-  "x-scheme-handler/https" = "org.qutebrowser.qutebrowser.desktop";
-  "x-scheme-handler/about" = "org.qutebrowser.qutebrowser.desktop";
-  "x-scheme-handler/unknown" = "org.qutebrowser.qutebrowser.desktop";
+    "text/html" = "org.qutebrowser.qutebrowser.desktop";
+    "x-scheme-handler/http" = "org.qutebrowser.qutebrowser.desktop";
+    "x-scheme-handler/https" = "org.qutebrowser.qutebrowser.desktop";
+    "x-scheme-handler/about" = "org.qutebrowser.qutebrowser.desktop";
+    "x-scheme-handler/unknown" = "org.qutebrowser.qutebrowser.desktop";
   };
   home.file.".config/qutebrowser/userscripts/container-open".source = "${(pkgs.callPackage ./qute-containers.nix { dmenuCmd = "fuzzel -d"; })}/bin/container-open";
   home.file.".config/qutebrowser/userscripts/containers_config".source = "${(pkgs.callPackage ./qute-containers.nix { dmenuCmd = "fuzzel -d"; })}/bin/containers_config";
@@ -324,7 +324,7 @@ c.fonts.web.family.cursive = font
     </body>
 
     </html>
-    
+
   '';
 
   home.file.".config/qutebrowser/containers".text = ''

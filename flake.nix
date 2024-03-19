@@ -23,7 +23,7 @@
         name = "Emmet"; # name/identifier
         email = "emmet@librephoenix.com"; # email (used for certain configurations)
         dotfilesDir = "~/.dotfiles"; # absolute path of the local repo
-        theme = "uwunicorn-yt"; # selcted theme from my themes directory (./themes/)
+        theme = "nord"; # selcted theme from my themes directory (./themes/)
         wm = "hyprland"; # Selected window manager or desktop environment; must select one in both ./user/wm/ and ./system/wm/
         # window manager type (hyprland or x11) translator
         wmType = if (wm == "hyprland") then "wayland" else "x11";
@@ -74,10 +74,6 @@
         };
       };
 
-      pkgs-kdenlive = import kdenlive-pin-nixpkgs {
-        system = systemSettings.system;
-      };
-
       # configure lib
       lib = nixpkgs.lib;
 
@@ -103,7 +99,6 @@
           extraSpecialArgs = {
             # pass config variables from above
             inherit pkgs-stable;
-            inherit pkgs-kdenlive;
             inherit systemSettings;
             inherit userSettings;
             inherit (inputs) nix-doom-emacs;
@@ -161,7 +156,6 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "nixpkgs/nixos-23.11";
-    kdenlive-pin-nixpkgs.url = "nixpkgs/cfec6d9203a461d9d698d8a60ef003cac6d0da94";
 
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
